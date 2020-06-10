@@ -170,15 +170,11 @@ def user_stats(df):
         print("This dataset doesn't have any gender column")
 
     # TO DO: Display earliest, most recent, and most common year of birth
-    try:
-        earliest = df['Birth Year'].min()
-        print('the earliest birth year is: ',earliest)
-        recent = df['Birth Year'].max()
-        print('the most recent birth year is: ',recent)
-        common = df['Birth Year'].mode()
-        print('the most common birth year is: ',common)
-    except KeyError:
-        print("This dataset doesn't have any gender column")
+    earliest = df['Birth Year'].min()
+    recent = df['Birth Year'].max()
+    common = df['Birth Year'].mode()
+    print('Earliest birth year is {} \n Most recent birth year is {} \n Most common birth year is {}'.format(earliest,recent,common))
+    
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -188,13 +184,17 @@ def display_data(df):
     Continuously asks user to specify if they want to see raw data, returns 5 lines of raw data for every "yes reply" 
     till user replies with no  
     """
-    reply = ['yes', 'no']
+    count = 0
     while True:
         user_reply = input('Would you like to see the raw data ? Kindly reply with a "yes" or "no" \n> ').lower()
         while user_reply == 'yes':
-            df.iloc[4:]
-        else:
+            count += 5
+            print(df.iloc[:count])
+        elif user_reply == 'no':
+            print("Thank you, enjoy yourself. Bye")
             break
+        else:
+            print('I do not recognize your command, kindly use a "yes" or a "no"')
                   
 
 def main():
