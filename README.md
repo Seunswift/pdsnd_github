@@ -10,7 +10,7 @@ three major cities in the United States — Chicago, New York City, and Washingt
 questions about it by computing. It is an interactive environment where a user chooses the data, filters a dataset to get statistics on these three different cities.
 
 # Files used
-* python.py
+* project.py
 * chicago.csv
 * washington.csv
 * new_york_city.csv
